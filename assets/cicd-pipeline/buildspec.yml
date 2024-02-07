@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade --force-reinstall botocore boto3 awscli
+      - pip install lookoutvision
+      - git clone https://github.com/aws-samples/amazon-lookout-for-vision-event-based-tracking.git
+      - cp -r amazon-lookout-for-vision-event-based-tracking/images/good/ ./
+      - cp -r amazon-lookout-for-vision-event-based-tracking/images/bad/ ./
+  build:
+    commands:
+      # Export the staging and production configuration files
+      - python build.py --input-bucket "$INPUT_BUCKET" --project-name "$PROJECT_NAME" --model-version "$MODEL_VERSION" --output-bucket "$OUTPUT_BUCKET"

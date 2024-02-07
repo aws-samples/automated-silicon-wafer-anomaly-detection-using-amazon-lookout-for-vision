@@ -1,0 +1,11 @@
+{
+    "lambda": {
+        "code_dir": "api",
+        "handler": "app.lambda_handler",
+        "timeout_in_seconds": "15",
+        "memory_size": "128"
+    },
+    "lambda_integration": {
+        "http_method": "POST"
+    }
+}

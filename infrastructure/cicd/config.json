@@ -1,0 +1,15 @@
+{
+    "codecommit": {
+        "dir_name": "cicd-pipeline",
+        "branch_name": "main"
+    },
+    "codebuild": {
+        "timeout_in_hours": "2",
+        "build_image_id": "aws/codebuild/amazonlinux2-x86_64-standard:5.0",
+        "build_image_compute_type": "small"
+    },
+    "codepipeline": {
+        "branch_name": "main",
+        "code_build_clone_output": "True"
+    }
+}
